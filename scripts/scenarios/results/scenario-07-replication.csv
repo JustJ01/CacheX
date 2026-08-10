@@ -1,0 +1,2 @@
+nodes,router,vnodes,clients,requests,keys,value_size,get_ratio,seed,key_order,total_secs,ops_per_sec,gets,sets,hits,misses,errors,avg_us,p50_us,p95_us,p99_us,max_us
+3,consistent,100,8,200000,30000,128,0.500000,9,sequential,19.5048,10253.87,99960,100040,75161,24799,0,774,1000,5000,5000,15099

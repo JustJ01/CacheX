@@ -1,0 +1,3 @@
+rf,clients,requests,keys,value_size,get_ratio,ops_per_sec,avg_us,p50_us,p95_us,p99_us,max_us,hits,misses,errors,repl_sent,repl_failed,repl_received,sent_received_gap,total_keys,total_used_bytes
+1,8,200000,50000,128,0.8,10962.35,706,1000,2000,5000,607763,50538,109147,0,0,0,0,0,27769,5664876
+2,8,200000,50000,128,0.8,8247.07,948,1000,2000,10000,699310,50555,109130,0,40315,0,40315,0,55538,11329752

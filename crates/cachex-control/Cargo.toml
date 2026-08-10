@@ -1,0 +1,17 @@
+[package]
+name = "cachex-control"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+axum = { workspace = true, features = ["json", "macros"] }
+serde.workspace = true
+serde_json.workspace = true
+toml.workspace = true
+tokio.workspace = true
+tokio-stream.workspace = true
+futures-util.workspace = true
+cachex-core = { path = "../cachex-core" }
+cachex-client = { path = "../cachex-client" }
+cachex-bench = { path = "../cachex-bench" }
+cachex-server = { path = "../cachex-server" }

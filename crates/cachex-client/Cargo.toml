@@ -1,0 +1,11 @@
+[package]
+name = "cachex-client"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+cachex-core = { path = "../cachex-core" }
+tokio.workspace = true
+
+[dev-dependencies]
+cachex-server = { path = "../cachex-server" }

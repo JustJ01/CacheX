@@ -1,0 +1,11 @@
+/target
+**/target
+*.aof
+*.log
+node_modules/
+dist/
+skills/
+agent/
+data/
+.control/
+.opencode/
