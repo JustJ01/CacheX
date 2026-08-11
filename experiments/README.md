@@ -163,22 +163,30 @@ powershell -ExecutionPolicy Bypass -File experiments\run-scalability.ps1
 
 `experiments\run-recovery.ps1`
 
-A healthy 3-node cluster (AOF enabled, heartbeat 1s/500ms/miss_threshold 2)
-loads keys, then node 2 is force-killed. The script stopwatches each phase:
+A healthy cluster (AOF enabled, heartbeat 1s/500ms/miss_threshold 2) loads
+keys, then node 2 is force-killed. The script stopwatches each phase:
 failure detection (node 1 sees peer 2 as Failed via `/metrics`), request
 failure rate while the node is down (a bounded sample bench), restart to
 serving, AOF replay time (log line + `recovery_ms` metric), and time to
 Healthy (peers.failed back to 0). A final full scan confirms zero errors and
-intact data. Defaults: 100k requests, 50k keys, seed 42.
+intact data. Defaults: 3 nodes, 100k requests, 50k keys, seed 42.
+
+Cluster size is configurable with `-NodeCount` (3, 4, 5 supported; each size
+runs on its own isolated port range). The failure share while a node is down
+tracks that node's 1/N routing share, and detection time stays heartbeat-bound
+(~2 s) regardless of size.
 
 This measures detection and recovery only. CacheX deliberately has no Raft,
 no leader election, and no automatic failover, so the finding is about how
 fast failure is detected and how completely a node restores its own data.
 
-Results: `experiments\results\recovery.csv`
+Results: `experiments\results\recovery.csv` (3 nodes), `recovery-n4.csv` (4
+nodes), `recovery-n5.csv` (5 nodes).
 
 ```
 powershell -ExecutionPolicy Bypass -File experiments\run-recovery.ps1
+powershell -ExecutionPolicy Bypass -File experiments\run-recovery.ps1 -NodeCount 4
+powershell -ExecutionPolicy Bypass -File experiments\run-recovery.ps1 -NodeCount 5
 ```
 
 ## Notes

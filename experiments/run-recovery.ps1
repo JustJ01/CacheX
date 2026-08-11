@@ -4,7 +4,7 @@ param(
     [int]$Keys = 50000,
     [int]$ValueSize = 128,
     [int]$Seed = 42,
-    [string]$Out = "$PSScriptRoot\results\recovery.csv"
+    [string]$Out = "$PSScriptRoot\results\recovery$(if ($NodeCount -eq 3) { '' } else { "-n$NodeCount" }).csv"
 )
 $ErrorActionPreference = "Stop"
 

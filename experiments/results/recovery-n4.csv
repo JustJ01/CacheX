@@ -1,0 +1,15 @@
+phase,metric,value
+cluster,nodes,4
+baseline,scan_hits,31703
+baseline,scan_misses,18297
+baseline,scan_errors,0
+detection,failed_detection_ms,1794
+failure,failed_requests,242
+failure,failed_request_share,26.89
+recovery,restart_to_metrics_ms,539
+recovery,aof_replay_ms,186
+recovery,node2_recovery_ms_metric,186
+recovery,time_to_healthy_ms,885
+verification,scan_hits,31828
+verification,scan_misses,18172
+verification,scan_errors,0
